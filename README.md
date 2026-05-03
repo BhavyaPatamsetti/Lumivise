@@ -221,5 +221,5 @@ AI & Data Science Enthusiast
 
 ## ⭐ Final Thought
 
-Lumivise is not just a dashboard —  
+Lumivise is not just a dashboard -  
 it’s a **thinking AI analyst** that explains your data like a human.
