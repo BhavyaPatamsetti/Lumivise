@@ -1,225 +1,38 @@
-# 🚀 Lumivise – AI Data Analyst Dashboard
+# Lumivise — AI-Powered Data Analytics
 
-**Illuminate. Visualize. Summarize.**
+A Streamlit application for exploring CSV/Excel datasets, creating interactive charts, generating Gemini-assisted interpretations, and exporting PDF reports.
 
-Lumivise is a **premium AI-powered Business Intelligence (BI) dashboard generator** that transforms raw datasets into **interactive visualizations, analyst-grade insights, and executive-level summaries** — all in one place.
+## What is included
 
-It acts like a **Personal AI Data Analyst**:
+- Safe cleaning removes empty and duplicate records without blanket missing-value imputation.
+- Automatic reports cover categories, distributions, relationships, time trends, hierarchies, and geography when suitable columns exist.
+- Visual Explorer supports chart selection, aggregation, filters, and a session canvas.
+- Local report history supports separate uploaded datasets.
+- ReportLab produces downloadable reports.
 
-> Upload data → Clean → Visualize → Explain → Summarize → Download report 📄
+## Getting started
 
----
+Use a compatible Python environment:
 
-## ✨ Features
-
-### 📊 1. Smart Data Processing
-- Safe, non-destructive cleaning  
-- Removes:
-  - Duplicate rows  
-  - Empty rows & columns  
-- Preserves:
-  - Original data types  
-  - Missing values (no blind filling)
-
----
-
-### 📈 2. Automated Visualization Engine
-Automatically detects:
-- Numeric columns  
-- Categorical columns  
-- Date/time columns  
-
-Generates only **relevant charts** (no unnecessary visuals):
-- Bar Charts  
-- Line Charts  
-- Scatter Plots  
-- Histograms  
-- Geo Maps (if coordinates exist)  
-
-📌 Powered by **Plotly** for premium interactive visualizations
-
----
-
-### 🧠 3. AI-Powered Analyst Summary
-Powered by **Google Gemini**
-
-Generates:
-- Executive Bottom Line (The “So What?”)  
-- KPI Breakdown  
-- Trends & Patterns  
-- Outliers & Anomalies  
-- Correlations & Drivers  
-- Business Recommendations  
-- What-if Scenarios  
-
----
-
-### 🧾 4. PDF Report Generation
-- One-click download  
-- Clean, structured report  
-
-Includes:
-- Dataset overview  
-- KPIs  
-- AI-generated insights  
-
-📌 Built using **ReportLab**
-
----
-
-### 🎯 5. Analyst-Level Insights (Not Basic AI)
-Lumivise goes beyond simple dashboards:
-- Thinks like a real data analyst  
-- Explains:
-  - Why a chart is used  
-  - What it means in business terms  
-- Highlights:
-  - Risks  
-  - Data quality issues  
-  - Decision impact  
-
----
-
-### 🎨 6. Premium UI/UX Dashboard
-- Modern glassmorphism design  
-- Smooth UI experience  
-- Clean layout (inspired by Power BI)  
-- Interactive sidebar filters  
-
----
-
-## 🛠️ Tech Stack
-
-| Category           | Tools        |
-|------------------|-------------|
-| Frontend         | Streamlit   |
-| Visualization    | Plotly      |
-| Backend Logic    | Python      |
-| AI Engine        | Gemini API  |
-| Data Processing  | Pandas      |
-| Report Generation| ReportLab   |
-
----
-
-## 📂 Project Structure
-
-```
-Lumivise/
-│
-├── main.py                # Main Streamlit app
-├── chats/                 # Saved chat sessions
-├── uploads/               # Uploaded datasets
-├── requirements.txt
-└── README.md
-```
-
----
-
-## ⚙️ Installation & Setup
-
-### 1. Clone Repository
-```bash
-git clone "repo link"
-cd lumivise
-```
-
-### 2. Create Virtual Environment
-```bash
+```sh
 python -m venv .venv
-source .venv/bin/activate   # Mac/Linux
-.venv\Scripts\activate      # Windows
-```
-
-### 3. Install Dependencies
-```bash
+source .venv/bin/activate
 pip install -r requirements.txt
-```
-
-### 4. Setup Gemini API Key
-
-Create file:
-```
-.streamlit/secrets.toml
-```
-
-Add:
-```toml
-GEMINI_API_KEY = "your_api_key_here"
-```
-
-### 5. Run Application
-```bash
 streamlit run main.py
 ```
 
----
+On Windows activate with `.venv\Scripts\activate`. Set `GEMINI_API_KEY` in the environment or in an untracked `.streamlit/secrets.toml` file. Upload a CSV/XLSX dataset and use Auto Report or Visual Explorer.
 
-## 📥 How to Use
+## Repository guide
 
-1. Upload a dataset (CSV / XLSX)  
-2. Lumivise will automatically:
-   - Clean the data  
-   - Detect column types  
-   - Generate visualizations  
+- `README.md`
+- `chats/`
+- `fevicon.png`
+- `main.py`
+- `requirements.txt`
+- `source.zip`
+- `uploads/`
 
-3. Explore:
-   - Dashboard  
-   - Filters  
-   - Charts with explanations  
+## Limitations and reproducibility
 
-4. View AI-generated summary  
-
-5. Download PDF report 📄  
-
----
-
-## ⚠️ Important Notes
-
-For best results:
-- Use **pre-cleaned datasets**
-
-Lumivise does NOT:
-- Force type conversions  
-- Remove meaningful missing values  
-
-Designed for:
-- Data Analysts  
-- Students  
-- Business Users  
-
----
-
-## 🧠 Example Use Cases
-
-- Sales Analysis Dashboard  
-- Marketing Performance Insights  
-- Customer Segmentation  
-- Financial Data Exploration  
-- Academic Projects  
-
----
-
-## 🚀 Future Improvements
-
-- Multi-dataset comparison  
-- Real-time data connections  
-- Forecasting models  
-- SQL database integration  
-- Dashboard export (Power BI style)  
-
----
-
-## 👩‍💻 Author
-
-**Radhi Sri Bhavya Patamsetti**  
-AI & Data Science Enthusiast  
-
-- GitHub: https://github.com/BhavyaPatamsetti  
-- LinkedIn: https://www.linkedin.com/in/bhavyapatamsetti/  
-
----
-
-## ⭐ Final Thought
-
-Lumivise is not just a dashboard -  
-it’s a **thinking AI analyst** that explains your data like a human.
+The code selects `gemini-1.5-flash`; verify that this model is available to your API account and update `MODEL_NAME` if needed. AI requests transmit column context and computed analytical findings to Google. Uploaded files and report history are stored in local `uploads/` and `chats/`; this is not an authenticated multi-user storage design. AI interpretations require review. Dependencies are unpinned, and the app has not been end-to-end tested during this documentation pass.
